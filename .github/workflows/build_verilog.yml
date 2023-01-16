@@ -19,23 +19,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
     - name: Set up JDK 11
       uses: actions/setup-java@v3
       with:
         java-version: '11'
         distribution: 'temurin'
         cache: 'sbt'
-    - name: sbt run SBox4Main 
+        
+    - name: Build Verilog with: sbt "run SBox4Main" 
       run: sbt "run SBox4Main"
-    - name: list directory
+      
+    - name: List directory
       run: ls -al
-    - name: Archive SBox4.v as Artifact
+      
+    - name: Store SBox4.v as Artifact
       uses: actions/upload-artifact@v3
       with:
         name: archive SBox4.v
         path: SBox4.v
-    - name: add and commit verilog
+
+    - name: Add, commit and push the Verilog (SBox4.v) back to repo
       uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
       with:
         # The arguments for the `git add` command (see the paragraph below for more info)
