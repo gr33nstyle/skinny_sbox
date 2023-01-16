@@ -31,15 +31,14 @@ jobs:
       run: sbt "run SBox4Main"
     - name: list directory
       run: ls -al
+    - name: Archive SBox4.v as Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: archive SBox4.v
+        path: SBox4.v
     - name: add and commit verilog
       uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
       with:
         # The arguments for the `git add` command (see the paragraph below for more info)
         # Default: '.'
         add: '-f SBox4.v'
-    - name: Archive SBox4.v as Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: archive SBox4.v
-        path: SBox4.v
-
