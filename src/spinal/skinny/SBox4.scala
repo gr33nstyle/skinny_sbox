@@ -6,8 +6,8 @@ import spinal.lib._
 
 case class SBox4() extends Component {
     val io = new Bundle{
-        val in_b = in (SkinnyBlock().block)
-        val out_b = out (SkinnyBlock().block)        
+        val in_cell = in Bits(4 bits)
+        val out_cell = out Bits(4 bits)
     }
        
     def cell_nxor(in : Bits): Bits = {
@@ -24,11 +24,7 @@ case class SBox4() extends Component {
         return cell_nxor(tmp3)
     }
 
-    for ((row_in, row_out) <- (io.in_b zip io.out_b)) {
-        for((cell_in, cell_out) <- (row_in zip row_out)) {
-            cell_out := cell_sub(cell_in)
-        }
-    }
+    io.out_cell := cell_sub(io.in_cell)
 }
 
 object SBox4Main{
