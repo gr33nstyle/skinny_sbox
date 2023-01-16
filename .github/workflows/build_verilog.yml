@@ -37,4 +37,9 @@ jobs:
         # The arguments for the `git add` command (see the paragraph below for more info)
         # Default: '.'
         add: '-f SBox4.v'
+    - name: Archive SBox4.v as Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: archive SBox4.v
+        path: SBox4.v
 
