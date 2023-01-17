@@ -1,6 +1,6 @@
 // Generator : SpinalHDL v1.8.0    git head : 4e3563a282582b41f4eaafc503787757251d23ea
 // Component : SBox4
-// Git hash  : fa1dfabfbe88ffe931540cc9f35181d95a32f2b9
+// Git hash  : 6f40e867273a9c013c3915bf9da244a6797b2576
 
 `timescale 1ns/1ps
 
