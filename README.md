@@ -5,3 +5,4 @@ The SBox of the LWC candidate Skinny. Coded in SpinalHDL
 ```
 sbt "run SBox4Main"
 ```
+
